@@ -36,7 +36,7 @@ gender(alexey_g, female, 1988, 0).
 gender(anna_a, female, 1956, 0).
 
 marriage(kate_a, urii_v, 2022, 0).
-marriage(andrey_v, elena_e, 1987, 0).
+marriage(elena_e, andrey_v, 1987, 0).
 marriage(olga_v, mark_a, 1991, 0).
 marriage(galina_k, vladimir_n, 1966, 0).
 marriage(dina_d, eduard_a, 1962, 1968).
@@ -52,8 +52,8 @@ parent(andrey_v, artem_a, 2005).
 parent(elena_e, artem_a, 2005).
 parent(andrey_v, kate_a, 1994).
 parent(elena_e, kate_a, 1994).
-parent(galina_k, olga_v, 1967).
-parent(vladimir_n, olga_v, 1967).
+parent(galina_k, olga_v, 1971).
+parent(vladimir_n, olga_v, 1971).
 parent(galina_k, andrey_v, 1967).
 parent(vladimir_n, andrey_v, 1967).
 parent(dina_d, elena_e, 1971).
@@ -62,26 +62,27 @@ parent(konstantin_p, galina_k, 1944).
 parent(agnia_a, galina_k, 1944).
 parent(alexey_m, vladimir_n, 1942).
 parent(arina_i, vladimir_n, 1942).
-parent(alexey_m, pavel_a, 1942).
-parent(arina_i, pavel_a, 1942).
-parent(alexey_m, grigorii_a, 1942).
-parent(arina_i, grigorii_a, 1942).
-parent(alexey_m, anna_a, 1942).
-parent(arina_i, anna_a, 1942).
+parent(alexey_m, pavel_a, 2000).
+parent(arina_i, pavel_a, 2000).
+parent(alexey_m, grigorii_a, 1947).
+parent(arina_i, grigorii_a, 1947).
+parent(alexey_m, anna_a, 1956).
+parent(arina_i, anna_a, 1956).
 
 
 ex_spouse(Person1, Person2) :-
     marriage(Person1, Person2, _, End),
     End \= 0.
 
-sibling(X, Y, Year) :-
-    parent(P, X, Year),
-    parent(P, Y, Year),
+sibling(X, Y) :-
+    parent(P, X, _),
+    parent(P, Y, _),
     X \= Y.
 
-grandparent(GP, GC, Year) :-
-    parent(GP, P, Year),
-    parent(P, GC, Year).
+grandparent(GP, C) :-
+    parent(P, C, _),
+    parent(GP, P, _).
+
 
 alive(Person, Year) :-
     gender(Person, _, Birth, Death),
@@ -94,7 +95,15 @@ married_longer_than(Person1, Person2, Years) :-
     Duration is DeathYear - Start,
     Duration >= Years.
 
-uncle_aunt(UncleAunt, Person, Year) :-
-    parent(P, Person, Year),
-    sibling(UncleAunt, P, Year),
-    gender(UncleAunt, _, _, _).
+uncle_aunt(UncleAunt, Person) :-
+    parent(P, Person, _),
+    sibling(UncleAunt, P).
+
+married_in_year(Person1, Person2, Year) :-
+    marriage(Person1, Person2, Start, End),
+    Year >= Start,
+    (End = 0; Year =< End).
+
+child(Child, Parent, Year) :-
+    parent(Parent, Child, Year).
+
