@@ -57,19 +57,19 @@
 12) `gender(Who, male, Birth, _), Birth < 1950.` мужчины, рождённые до 1950 года.
 13) `gender(Person, _, 1942, _)` кто родился в 1942 году.
 14) `marriage(Husband, Wife, 1991, _).` браки, заключённые в 1991 году.
-15) `marriage(kate_a, Spouse, Year, _).` брак Кати А. (с кем и когда).
+15) `marriage(kate_a, Spouse, Year, _).` брак kate_a (с кем и когда).
 16) `ex_spouse(X, Y).` все бывшие супруги (аналогично запросу №5).
 17) `married_in_year(Person1, Person2, 1975).` кто был женат в 1975 году.
-18) `parent(mark_a, Child, _).` дети Марка А.
-19) `child(kate_a, Parent, _).` родители Кати А.
-20) `sibling(liza_m, Who).` братья и сёстры Лизы М.
+18) `parent(mark_a, Child, _).` дети mark_a.
+19) `child(kate_a, Parent, _).` родители kate_a.
+20) `sibling(liza_m, Who).` братья и сёстры liza_m.
 21) `sibling(X, Y), gender(X, female, _, _).` все сестры (женщины, являющиеся сиблингами).
-22) `grandparent(GP, kate_a).` дедушки/бабушки Кати А.
+22) `grandparent(GP, kate_a).` дедушки/бабушки kate_a.
 23) `alive(Person, 1950), gender(Person, female, _, _).` женщины, жившие в 1950 году.
-24) `uncle_aunt(UncleAunt, liza_m,).` дяди и тёти Лизы М.
+24) `uncle_aunt(UncleAunt, liza_m,).` дяди и тёти liza_m.
 25) `married_longer_than(X, Y, 30).` пары, чей брак длился дольше 30 лет.
-26) `uncle_aunt(Uncle, kate_a), gender(Uncle, male, _, _), alive(Uncle, 2025).` живые дяди Кати А. (мужчины) в 2025 году.
-27) `grandparent(GP, artem_a), gender(GP, female, _, _), alive(GP, 1990).` бабушки Артёма А., которые были живы в 1990 году.
-28) `child(Child, andrey_v, _), grandparent(GP, Child), alive(GP, 2000).` дети Андрея В., у которых в 2000 году была жива бабушка или дедушка.
-29) `sibling(Sib, olga_v), gender(Sib, _, Birth, _), Birth < 1970.` братья/сёстры Ольги В., рождённые до 1970 года.
+26) `uncle_aunt(Uncle, kate_a), gender(Uncle, male, _, _), alive(Uncle, 2025).` живые дяди kate_a (мужчины) в 2025 году.
+27) `grandparent(GP, artem_a), gender(GP, female, _, _), alive(GP, 1990).` бабушки artem_a, которые были живы в 1990 году.
+28) `child(Child, andrey_v, _), grandparent(GP, Child), alive(GP, 2000).` дети andrey_v, у которых в 2000 году была жива бабушка или дедушка.
+29) `sibling(Sib, olga_v), gender(Sib, _, Birth, _), Birth < 1970.` братья/сёстры olga_v, рождённые до 1970 года.
 30) `married_longer_than(P1, P2, 20), alive(P1, 2010), alive(P2, 2010).` пары, чей брак длился больше 20 лет, и оба были живы в 2010 году.
