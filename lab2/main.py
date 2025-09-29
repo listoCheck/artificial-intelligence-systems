@@ -2,6 +2,17 @@ import logging
 import re
 
 from swiplserver import PrologMQI, create_posix_path
+
+from lab2.src.methods.get_children import GetChildren
+from lab2.src.methods.get_grandparents import GetGrandparents
+from lab2.src.methods.get_parents import GetParents
+from lab2.src.methods.get_siblings import GetSiblings
+from lab2.src.methods.get_spouses import GetSpouses
+from lab2.src.methods.get_uncles_aunts import GetUnclesAunts
+from lab2.src.methods.is_alive import IsAlive
+from lab2.src.methods.is_married import IsMarried
+from lab2.src.methods.married_in_year import MarriedInYear
+from lab2.src.methods.married_longer_than import MarriedLongerThan
 from src.methods import (
     get_parents, get_children, get_siblings, get_grandparents,
     is_alive, is_married, married_longer_than, get_uncles_aunts,
@@ -27,17 +38,17 @@ requests = [
 ]
 
 patterns = {
-    r"Кто родители (.+)\?": get_parents,
-    r"Кто дети у (.+)\?": get_children,
-    r"Кто братья и сестры у (.+)\?": get_siblings,
-    r"Кто дедушки и бабушки у (.+)\?": get_grandparents,
-    r"Жив ли (.+) в (\d+) году\?": is_alive,
-    r"Жива ли (.+) в (\d+) году\?": is_alive,
-    r"Состоят ли (.+) и (.+) в браке\?": is_married,
-    r"Были ли (.+) и (.+) в браке дольше (\d+) лет\?": married_longer_than,
-    r"Кто дяди или тети у (.+)\?": get_uncles_aunts,
-    r"Были ли (.+) и (.+) женаты в (\d+) году\?": married_in_year,
-    r"Кто супруги у (.+)\?": get_spouses,
+    r"Кто родители (.+)\?": GetParents,
+    r"Кто дети у (.+)\?": GetChildren,
+    r"Кто братья и сестры у (.+)\?": GetSiblings,
+    r"Кто дедушки и бабушки у (.+)\?": GetGrandparents,
+    r"Жив ли (.+) в (\d+) году\?": IsAlive,
+    r"Жива ли (.+) в (\d+) году\?": IsAlive,
+    r"Состоят ли (.+) и (.+) в браке\?": IsMarried,
+    r"Были ли (.+) и (.+) в браке дольше (\d+) лет\?": MarriedLongerThan,
+    r"Кто дяди или тети у (.+)\?": GetUnclesAunts,
+    r"Были ли (.+) и (.+) женаты в (\d+) году\?": MarriedInYear,
+    r"Кто супруги у (.+)\?": GetSpouses,
 }
 
 
