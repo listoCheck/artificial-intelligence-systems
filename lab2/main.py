@@ -3,21 +3,16 @@ import re
 
 from swiplserver import PrologMQI, create_posix_path
 
-from lab2.src.methods.get_children import GetChildren
-from lab2.src.methods.get_grandparents import GetGrandparents
-from lab2.src.methods.get_parents import GetParents
-from lab2.src.methods.get_siblings import GetSiblings
-from lab2.src.methods.get_spouses import GetSpouses
-from lab2.src.methods.get_uncles_aunts import GetUnclesAunts
-from lab2.src.methods.is_alive import IsAlive
-from lab2.src.methods.is_married import IsMarried
-from lab2.src.methods.married_in_year import MarriedInYear
-from lab2.src.methods.married_longer_than import MarriedLongerThan
-from src.methods import (
-    get_parents, get_children, get_siblings, get_grandparents,
-    is_alive, is_married, married_longer_than, get_uncles_aunts,
-    married_in_year, get_spouses
-)
+from src.methods.get_children import GetChildren
+from src.methods.get_grandparents import GetGrandparents
+from src.methods.get_parents import GetParents
+from src.methods.get_siblings import GetSiblings
+from src.methods.get_spouses import GetSpouses
+from src.methods.get_uncles_aunts import GetUnclesAunts
+from src.methods.is_alive import IsAlive
+from src.methods.is_married import IsMarried
+from src.methods.married_in_year import MarriedInYear
+from src.methods.married_longer_than import MarriedLongerThan
 
 KNOWLEDGE_BASE_PATH = "../lab1/baze.pl"
 
